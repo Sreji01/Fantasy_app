@@ -155,3 +155,46 @@ clj꞉fantasy-app.core꞉> 
 ; nil
 false
 clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+(calculate-player-predicted-points player)
+; Syntax error compiling at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\.calva\output-window\output.calva-repl:162:1).
+; Unable to resolve symbol: player in this context
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/player
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+(calculate-player-predicted-points player)
+3.84
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Calculates player's points at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\src\fantasy_app\core.clj:28)
+; Expected:
+; nil
+; Actual:
+; java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null
+;   fantasy_app.core$calculate_player_predicted_points.invokeStatic(form-init13877340682093844795.clj:22)
+;   fantasy_app.core$calculate_player_predicted_points.invoke(form-init13877340682093844795.clj:18)
+;   fantasy_app.core$eval11372$fn__11373$fn__11374$fn__11375.invoke(form-init13877340682093844795.clj:28)
+;   fantasy_app.core$eval11372$fn__11373$fn__11374.invoke(form-init13877340682093844795.clj:27)
+;   fantasy_app.core$eval11372$fn__11373.invoke(form-init13877340682093844795.clj:27)
+;   fantasy_app.core$eval11372.invokeStatic(form-init13877340682093844795.clj:27)
+;   fantasy_app.core$eval11372.invoke(form-init13877340682093844795.clj:27)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__1270$fn__1271.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__1270.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__1303$fn__1307.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__1373$fn__1377.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__1373.invoke(session.clj:217)
+false
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
