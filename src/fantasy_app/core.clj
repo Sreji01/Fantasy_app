@@ -8,12 +8,20 @@
   
   (println "Hello, World!"))
 
-(def player
-  {:id 101 :position 4 :xg 0.15 :xa 0.08 :xgc 0.90 
-  :chance-of-playing 95 :clean-sheet-probability 0.0 :bps-rank 10 
-  :form 5.4 
-  :minutes-per-game 85 :ict-index 45.0 :expected-bonus 3})
+(def player1
+  {:id 101 :now-cost 81 :xg 0.15 :xa 0.08 :expected-bonus 3})
+  
 
+(def player2
+{:id 202 :now-cost 65 :xg 0.30 :xa 0.12 :expected-bonus 5})
+
+(def players
+  [{:id 303 :now-cost 70 :xg 0.10 :xa 0.20 :expected-bonus 2}
+   {:id 404 :now-cost 90 :xg 0.40 :xa 0.05 :expected-bonus 4}
+   {:id 505 :now-cost 75 :xg 0.25 :xa 0.15 :expected-bonus 3}
+   {:id 606 :now-cost 60 :xg 0.20 :xa 0.10 :expected-bonus 1}
+   {:id 707 :now-cost 85 :xg 0.35 :xa 0.18 :expected-bonus 5}
+   {:id 808 :now-cost 55 :xg 0.12 :xa 0.25 :expected-bonus 2}])
 
 (defn calculate-player-predicted-points
 "A function that calculates player's predicted points based in next gameweek"
@@ -24,5 +32,12 @@
       bonus-points (* 1 expected-bonus)]
       (+ goal-points assist-points bonus-points)))
 
-(fact "Calculates player's points"
+(fact "Check if there is a return value"
 (calculate-player-predicted-points nil) =not=> nil)
+
+(defn suggest-best-transfer
+"A function that returns best replacement for selected players based on predicted points"
+[players & player])
+
+(fact "Check if there is a return value"
+(suggest-best-transfer player1 player2) =not=> nil)

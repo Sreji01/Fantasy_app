@@ -198,3 +198,36 @@ false
 clj꞉fantasy-app.core꞉> 
 true
 clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Calculates predicted points correctly for a forward at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\src\fantasy_app\core.clj:31)
+; Expected:
+; 5.2
+; Actual:
+; 3.84
+false
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/player1
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/player2
+clj꞉fantasy-app.core꞉> 
+; Syntax error compiling at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\src\fantasy_app\core.clj:1:1937).
+; Unable to resolve symbol: suggest-best-transfer in this context
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Check if there is a return value at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\src\fantasy_app\core.clj:43)
+; Expected: Anything BUT
+; nil
+; Actual:
+; nil
+false
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Check if there is a return value at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\src\fantasy_app\core.clj:43)
+; Expected: Anything BUT
+; nil
+; Actual:
+; nil
+false
+clj꞉fantasy-app.core꞉> 
