@@ -117,3 +117,41 @@ false
 clj꞉fantasy-app.core꞉> 
 true
 clj꞉fantasy-app.core꞉> 
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/Nikola/Desktop/Clojure_projekti/fantasy-app/.nrepl-port ...
+; Using host:port localhost:52808 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉fantasy-app.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+"=not=>"
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+"=not=>"
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/calculate-player-predicted-points
+clj꞉fantasy-app.core꞉> 
+nil
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Calculates player's points at (c:\Users\Nikola\Desktop\Clojure_projekti\fantasy-app\src\fantasy_app\core.clj:16)
+; Expected: Anything BUT
+; nil
+; Actual:
+; nil
+false
+clj꞉fantasy-app.core꞉> 
