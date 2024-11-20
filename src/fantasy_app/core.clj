@@ -36,9 +36,12 @@
 
 (defn suggest-best-transfer
 "A function that returns best replacement for selected players based on predicted points"
-[players & player-id]
-  (let [ranked-players (filter #(not (some #(= (:id %) %) player-id)) 
-                               (sort-by (fn [player] (- (calculate-player-predicted-points player))) players))]
+[players budget-in-bank & player-id]
+  (let [ranked-players (filter #(not (some #{(:id %)} player-id)) 
+                               (sort-by (fn [player] 
+                                          (- (calculate-player-predicted-points player))) players))
+        transfered-out-players (filter #(some #{(:id %)}player-id)players)
+        available-budget (+ budget-in-bank (reduce + (map :now-cost transfered-out-players)))]
     (take (count player-id) ranked-players)))
 
 

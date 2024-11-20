@@ -268,3 +268,17 @@ clj꞉fantasy-app.core꞉> 
 (suggest-best-transfer all-players 404 303)
 ({:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5} {:id 202, :now-cost 65, :xg 0.3, :xa 0.12, :expected-bonus 5})
 clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+suggest-best-transfer()#'fantasy-app.core/all-players
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players )#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 404 505 )
+({:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5} {:id 202, :now-cost 65, :xg 0.3, :xa 0.12, :expected-bonus 5} {:id 101, :now-cost 81, :xg 0.15, :xa 0.08, :expected-bonus 3} {:id 808, :now-cost 55, :xg 0.12, :xa 0.25, :expected-bonus 2} {:id 303, :now-cost 70, :xg 0.1, :xa 0.2, :expected-bonus 2} {:id 606, :now-cost 60, :xg 0.2, :xa 0.1, :expected-bonus 1})
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 808 707)
+({:id 202, :now-cost 65, :xg 0.3, :xa 0.12, :expected-bonus 5} {:id 404, :now-cost 90, :xg 0.4, :xa 0.05, :expected-bonus 4})
+clj꞉fantasy-app.core꞉> 
