@@ -256,3 +256,15 @@ clj꞉fantasy-app.core꞉> 
 (suggest-best-transfer all-players 404 303)
 ({:id 606, :now-cost 60, :xg 0.2, :xa 0.1, :expected-bonus 1} {:id 303, :now-cost 70, :xg 0.1, :xa 0.2, :expected-bonus 2})
 clj꞉fantasy-app.core꞉> 
+; Execution error (IllegalArgumentException) at fantasy-app.core/suggest-best-transfer (form-init6825924502824679937.clj:40).
+; Don't know how to create ISeq from: clojure.lang.Keyword
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 404 303)
+({:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5} {:id 202, :now-cost 65, :xg 0.3, :xa 0.12, :expected-bonus 5})
+clj꞉fantasy-app.core꞉> 

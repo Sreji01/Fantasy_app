@@ -37,8 +37,8 @@
 (defn suggest-best-transfer
 "A function that returns best replacement for selected players based on predicted points"
 [players & player-id]
-  (let [ranked-players (sort-by (fn[player] (calculate-player-predicted-points player)) players)]
+  (let [ranked-players (sort-by (fn[player] (- (calculate-player-predicted-points player))) players)]
     (take (count player-id) ranked-players)))
 
 (fact "Check if there is a return value"
-(suggest-best-transfer 303 =not=> nil))
+(suggest-best-transfer all-players 303 =not=> nil))
