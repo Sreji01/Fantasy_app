@@ -282,3 +282,8 @@ clj꞉fantasy-app.core꞉> 
 (suggest-best-transfer all-players 808 707)
 ({:id 202, :now-cost 65, :xg 0.3, :xa 0.12, :expected-bonus 5} {:id 404, :now-cost 90, :xg 0.4, :xa 0.05, :expected-bonus 4})
 clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 10 202 606)
+[{:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5}]
+clj꞉fantasy-app.core꞉> 

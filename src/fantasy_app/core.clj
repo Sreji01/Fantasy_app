@@ -45,12 +45,13 @@
     (loop [remaining ranked-players
            selected-players []
            total-price 0]
-      (let [new-price (+ total-price (:now-cost (first remaining)))]
-        (if (<= new-price available-budget)
-          (recur (rest remaining) (conj selected-players (first remaining)) new-price)
-          (recur (rest remaining) selected-players total-price))))
-    ;;(take (count player-id) ranked-players)
-    ))
+      (if (or (empty? remaining)
+              (== (count selected-players) (count player-id)))
+        selected-players
+        (let [new-price (+ total-price (:now-cost (first remaining)))]
+          (if (<= new-price available-budget)
+            (recur (rest remaining) (conj selected-players (first remaining)) new-price)
+            (recur (rest remaining) selected-players total-price)))))))
 
 
 (fact "Check if there is a return value"
