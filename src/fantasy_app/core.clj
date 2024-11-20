@@ -42,7 +42,15 @@
                                           (- (calculate-player-predicted-points player))) players))
         transfered-out-players (filter #(some #{(:id %)}player-id)players)
         available-budget (+ budget-in-bank (reduce + (map :now-cost transfered-out-players)))]
-    (take (count player-id) ranked-players)))
+    (loop [remaining ranked-players
+           selected-players []
+           total-price 0]
+      (let [new-price (+ total-price (:now-cost (first remaining)))]
+        (if (<= new-price available-budget)
+          (recur (rest remaining) (conj selected-players (first remaining)) new-price)
+          (recur (rest remaining) selected-players total-price))))
+    ;;(take (count player-id) ranked-players)
+    ))
 
 
 (fact "Check if there is a return value"
