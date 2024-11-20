@@ -8,15 +8,11 @@
   
   (println "Hello, World!"))
 
-(def player1
-  {:id 101 :now-cost 81 :xg 0.15 :xa 0.08 :expected-bonus 3})
-  
 
-(def player2
-{:id 202 :now-cost 65 :xg 0.30 :xa 0.12 :expected-bonus 5})
-
-(def players
-  [{:id 303 :now-cost 70 :xg 0.10 :xa 0.20 :expected-bonus 2}
+(def all-players
+  [{:id 101 :now-cost 81 :xg 0.15 :xa 0.08 :expected-bonus 3}
+   {:id 202 :now-cost 65 :xg 0.30 :xa 0.12 :expected-bonus 5}
+   {:id 303 :now-cost 70 :xg 0.10 :xa 0.20 :expected-bonus 2}
    {:id 404 :now-cost 90 :xg 0.40 :xa 0.05 :expected-bonus 4}
    {:id 505 :now-cost 75 :xg 0.25 :xa 0.15 :expected-bonus 3}
    {:id 606 :now-cost 60 :xg 0.20 :xa 0.10 :expected-bonus 1}
@@ -35,9 +31,14 @@
 (fact "Check if there is a return value"
 (calculate-player-predicted-points nil) =not=> nil)
 
+;;First we have to go through all players and calculate predicted points for each one, and than based on that we need to return player/s
+;;with highest predicted points whose number is equal to players we want to transfer out.
+
 (defn suggest-best-transfer
 "A function that returns best replacement for selected players based on predicted points"
-[players & player])
+[players & player-id]
+  (let [ranked-players (sort-by (fn[player] (calculate-player-predicted-points player)) players)]
+    (take (count player-id) ranked-players)))
 
 (fact "Check if there is a return value"
-(suggest-best-transfer player1 player2) =not=> nil)
+(suggest-best-transfer 303 =not=> nil))
