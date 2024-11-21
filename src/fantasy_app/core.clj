@@ -78,19 +78,17 @@
         => (apply max (map calculate-player-predicted-points all-players)))
 
 (defn valid-optimal-team?
-  "A function that checks "
-  [selected-players]
+  "Checks if the selected players form a valid team within budget and positional constraints."
+  [selected-players budget]
   (let [total-price (reduce + (map :now-cost selected-players))
-        num-of-goalkeepers (count (filter #(= (:element_type %) 0) selected-players))
-        num-of-defenders (count (filter #(= (:element_type %) 1) selected-players))
-        num-of-midfielders (count (filter #(= (:element_type %) 2) selected-players))
-        num-of-forwards (count (filter #(= (:element_type %) 3) selected-players))]
-    (if (or (> num-of-goalkeepers 2) (> num-of-defenders 5) (> num-of-midfielders 5)
-            (> num-of-forwards 3) (> total-price 100))
-      false
-      true))) 
+        count-by-position (frequencies (map :element_type selected-players))]
+    (and (== (get count-by-position 1 0) 2)
+         (== (get count-by-position 2 0) 5)
+         (== (get count-by-position 3 0) 5)
+         (== (get count-by-position 4 0) 3)
+         (<= total-price budget))))
   
 
 (fact "Check if there is a return value"
-      (valid-optimal-team? all-players) =not=> nil)
+      (valid-optimal-team? all-players 100) =not=> nil)
 
