@@ -9,14 +9,15 @@
   (println "Hello, World!"))
 
 (def all-players
-  [{:id 101 :now-cost 81 :xg 0.15 :xa 0.08 :expected-bonus 3}
-   {:id 202 :now-cost 65 :xg 0.30 :xa 0.12 :expected-bonus 5}
-   {:id 303 :now-cost 70 :xg 0.10 :xa 0.20 :expected-bonus 2}
-   {:id 404 :now-cost 90 :xg 0.40 :xa 0.05 :expected-bonus 4}
-   {:id 505 :now-cost 75 :xg 0.25 :xa 0.15 :expected-bonus 3}
-   {:id 606 :now-cost 60 :xg 0.20 :xa 0.10 :expected-bonus 1}
-   {:id 707 :now-cost 85 :xg 0.35 :xa 0.18 :expected-bonus 5}
-   {:id 808 :now-cost 55 :xg 0.12 :xa 0.25 :expected-bonus 2}])
+  [{:id 101 :now-cost 81 :xg 0.15 :xa 0.08 :expected-bonus 3 :element_type 2} 
+   {:id 202 :now-cost 65 :xg 0.30 :xa 0.12 :expected-bonus 5 :element_type 4} 
+   {:id 303 :now-cost 70 :xg 0.10 :xa 0.20 :expected-bonus 2 :element_type 3}
+   {:id 404 :now-cost 90 :xg 0.40 :xa 0.05 :expected-bonus 4 :element_type 4}
+   {:id 505 :now-cost 75 :xg 0.25 :xa 0.15 :expected-bonus 3 :element_type 3} 
+   {:id 606 :now-cost 60 :xg 0.20 :xa 0.10 :expected-bonus 1 :element_type 3}
+   {:id 707 :now-cost 85 :xg 0.35 :xa 0.18 :expected-bonus 5 :element_type 4}
+   {:id 808 :now-cost 55 :xg 0.12 :xa 0.25 :expected-bonus 2 :element_type 2}
+   ])
 
 (defn calculate-player-predicted-points
 "A function that calculates player's predicted points based in next gameweek"
@@ -78,7 +79,18 @@
 
 (defn valid-optimal-team?
   "A function that checks "
-  [selected-players])
+  [selected-players]
+  (let [total-price (reduce + (map :now-cost selected-players))
+        num-of-goalkeepers (count (filter #(= (:element_type %) 0) selected-players))
+        num-of-defenders (count (filter #(= (:element_type %) 1) selected-players))
+        num-of-midfielders (count (filter #(= (:element_type %) 2) selected-players))
+        num-of-forwards (count (filter #(= (:element_type %) 3) selected-players))]
+    (if (or (> num-of-goalkeepers 2) (> num-of-defenders 5) (> num-of-midfielders 5)
+            (> num-of-forwards 3) (> total-price 100))
+      false
+      true))) 
+  
 
 (fact "Check if there is a return value"
       (valid-optimal-team? all-players) =not=> nil)
+
