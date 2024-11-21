@@ -8,7 +8,6 @@
   
   (println "Hello, World!"))
 
-
 (def all-players
   [{:id 101 :now-cost 81 :xg 0.15 :xa 0.08 :expected-bonus 3}
    {:id 202 :now-cost 65 :xg 0.30 :xa 0.12 :expected-bonus 5}
@@ -76,3 +75,10 @@
 (fact "The predicted points of the suggested captain should be the highest"
         (calculate-player-predicted-points (suggest-best-captain all-players))
         => (apply max (map calculate-player-predicted-points all-players)))
+
+(defn valid-optimal-team?
+  "A function that checks "
+  [selected-players])
+
+(fact "Check if there is a return value"
+      (valid-optimal-team? all-players) =not=> nil)

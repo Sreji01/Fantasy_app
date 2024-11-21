@@ -350,3 +350,16 @@ true
 clj꞉fantasy-app.core꞉> 
 true
 clj꞉fantasy-app.core꞉> 
+; Syntax error compiling at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:84:7).
+; Unable to resolve symbol: valid-optimal-team? in this context
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/valid-optimal-team?
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Check if there is a return value at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:84)
+; Expected: Anything BUT
+; nil
+; Actual:
+; nil
+false
+clj꞉fantasy-app.core꞉> 
