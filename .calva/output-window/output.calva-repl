@@ -287,3 +287,42 @@ clj꞉fantasy-app.core꞉> 
 (suggest-best-transfer all-players 10 202 606)
 [{:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5}]
 clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 10 303 606)
+[{:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5} {:id 808, :now-cost 55, :xg 0.12, :xa 0.25, :expected-bonus 2}]
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 10 707 606)
+[{:id 202, :now-cost 65, :xg 0.3, :xa 0.12, :expected-bonus 5} {:id 404, :now-cost 90, :xg 0.4, :xa 0.05, :expected-bonus 4}]
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Number of players returned should match input player IDs at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:61)
+; Expected:
+; 3
+; Actual:
+; 2
+false
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+; Syntax error macroexpanding clojure.core/defn at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:63:1).
+; () - failed: Insufficient input at: [:fn-tail] spec: :clojure.core.specs.alpha/defn-args
+clj꞉fantasy-app.core꞉> 
+; Syntax error compiling at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:66:1).
+; Unable to resolve symbol: suggest-best-captain in this context
+clj꞉fantasy-app.core꞉> 
+; Syntax error compiling at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:68:7).
+; Unable to resolve symbol: suggest-best-captain in this context
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-captain
+clj꞉fantasy-app.core꞉> 
+; 
+; FAIL Check if there is a return value at (c:\Users\Nikola\Desktop\Clojure projekat\fantasy-app\src\fantasy_app\core.clj:68)
+; Expected: Anything BUT
+; nil
+; Actual:
+; nil
+false
+clj꞉fantasy-app.core꞉> 

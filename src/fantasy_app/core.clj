@@ -53,6 +53,16 @@
             (recur (rest remaining) (conj selected-players (first remaining)) new-price)
             (recur (rest remaining) selected-players total-price)))))))
 
-
 (fact "Check if there is a return value"
 (suggest-best-transfer all-players 303 =not=> nil))
+
+(fact "Number of players returned should match input player IDs"
+      (let [result (suggest-best-transfer all-players 2 303 404 101)]
+        (count result) => 3))
+
+(defn suggest-best-captain
+  "A function that selects the best captain based on predicted points"
+  [team])
+
+(fact "Check if there is a return value"
+      (suggest-best-captain all-players) =not=> nil)
