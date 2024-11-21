@@ -326,3 +326,27 @@ clj꞉fantasy-app.core꞉> 
 ; nil
 false
 clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/rank-players
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-transfer
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer 4 202 303)
+; Execution error (IllegalArgumentException) at fantasy-app.core/rank-players (form-init6825924502824679937.clj:40).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+(suggest-best-transfer all-players 4 202 303)
+[{:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5}]
+clj꞉fantasy-app.core꞉> 
+#'fantasy-app.core/suggest-best-captain
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+(suggest-best-captain all-players)
+{:id 707, :now-cost 85, :xg 0.35, :xa 0.18, :expected-bonus 5}
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 
+true
+clj꞉fantasy-app.core꞉> 

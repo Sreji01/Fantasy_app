@@ -31,15 +31,17 @@
 (fact "Check if there is a return value"
 (calculate-player-predicted-points nil) =not=> nil)
 
-;;First we have to go through all players and calculate predicted points for each one, and than based on that we need to return player/s
-;;with highest predicted points whose number is equal to players we want to transfer out.
+(defn rank-players
+  "A function that sorts players in decrasing order based on predicted points"
+  [players]
+  (sort-by (fn [player]
+             (- (calculate-player-predicted-points player))) players))
 
 (defn suggest-best-transfer
 "A function that returns best replacement for selected players based on predicted points"
 [players budget-in-bank & player-id]
   (let [ranked-players (filter #(not (some #{(:id %)} player-id)) 
-                               (sort-by (fn [player] 
-                                          (- (calculate-player-predicted-points player))) players))
+                               (rank-players players))
         transfered-out-players (filter #(some #{(:id %)}player-id)players)
         available-budget (+ budget-in-bank (reduce + (map :now-cost transfered-out-players)))]
     (loop [remaining ranked-players
@@ -62,7 +64,15 @@
 
 (defn suggest-best-captain
   "A function that selects the best captain based on predicted points"
-  [team])
+  [team]
+  (first (rank-players team)))
 
 (fact "Check if there is a return value"
       (suggest-best-captain all-players) =not=> nil)
+
+(fact "Should return nil when the team is empty"
+      (suggest-best-captain []) => nil)
+
+(fact "The predicted points of the suggested captain should be the highest"
+        (calculate-player-predicted-points (suggest-best-captain all-players))
+        => (apply max (map calculate-player-predicted-points all-players)))
